@@ -26,7 +26,6 @@
 	-o-transition: margin-top 300ms;
 	-webkit-transition: margin-top 300ms;
 }
-.envelope:hover,
 .envelope.show {
 	transition-delay: 150ms;
 	-ms-transition-delay: 150ms;
@@ -53,7 +52,6 @@
 	-o-transition: -o-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
 	-webkit-transition: -webkit-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
 }
-.envelope:hover .top,
 .envelope.show .top {
 	transition: transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
 	-ms-transition: -ms-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
@@ -135,7 +133,6 @@
 	-o-transition: margin-top 300ms 0ms;
 	-webkit-transition: margin-top 300ms 0ms;
 }
-.envelope:hover .paper,
 .envelope.show .paper {
 	margin-top: calc(-60px * var(--scale));
 	transition: margin-top 300ms 150ms;

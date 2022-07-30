@@ -1,9 +1,29 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
+import { ReactNode, useRef } from 'react';
 import Container from '../components/Container';
 import Envelope from '../components/Envelope';
 
 const Home: NextPage = () => {
+	const linkRef = useRef<HTMLDivElement>(null);
+
+	function arrowComponent(): ReactNode {
+		return (
+			<svg
+				className="lg:w-[70px] lg:h-[70px] w-[50px] h-[50px] mx-auto text-blue-600 animate-bounce rounded-full shadow-lg p-2"
+				fill="none"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+				strokeWidth="2"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+			>
+				<path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+			</svg>
+		);
+	}
+
 	return (
 		<Container>
 			<Head>
@@ -12,8 +32,18 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div className="flex flex-col justify-center text-center">
-				<Envelope>
-					<h2>Content</h2>
+				<Envelope ignore={[linkRef]}>
+					<div className="flex flex-col lg:gap-8 gap-4">
+						<h3 className="text-blue-600">Happy Birthday!</h3>
+						<Link href="/">
+							<div ref={linkRef} className="flex flex-col justify-center lg:gap-8 gap-4">
+								<h5 className="whitespace-nowrap hover:underline underline-offset-1 hover:text-blue-600 transition-colors duration-200">
+									Click here to read message
+								</h5>
+								{arrowComponent()}
+							</div>
+						</Link>
+					</div>
 				</Envelope>
 			</div>
 		</Container>

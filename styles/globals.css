@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	h1 {
+		@apply sm:text-8xl font-bold text-7xl;
+	}
+
+	h2 {
+		@apply sm:text-7xl font-bold text-6xl;
+	}
+
+	h3 {
+		@apply sm:text-4xl font-bold text-3xl;
+	}
+
+	h4 {
+		@apply sm:text-2xl font-semibold text-xl;
+	}
+
+	h5 {
+		@apply sm:text-xl font-semibold text-lg;
+	}
+
+	h6 {
+		@apply text-lg;
+	}
+
+	p {
+		@apply text-base;
+	}
+
+	hr {
+		@apply border-gray-300;
+	}
+
+	body {
+		@apply overflow-x-hidden;
+	}
+}
