@@ -1,0 +1,169 @@
+/* Taken from: https://bits.darlic.com/animated-opening-envelope/ */
+
+.contact {
+	--scale: 4;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: calc(-125px * var(--scale));
+	margin-top: calc(-125px * var(--scale));
+	height: min(95vh, calc(250px * var(--scale)));
+	width: calc(250px * var(--scale));
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 2px;
+	-ms-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+.contact .envelope {
+	position: absolute;
+	height: calc(93px * var(--scale));
+	width: calc(165px * var(--scale));
+	left: 50%;
+	margin-left: calc(-83px * var(--scale));
+	top: 50%;
+	margin-top: calc(-50px * var(--scale));
+	background: #f9f9f9;
+	transition: margin-top 300ms;
+	-ms-transition: margin-top 300ms;
+	-moz-transition: margin-top 300ms;
+	-o-transition: margin-top 300ms;
+	-webkit-transition: margin-top 300ms;
+}
+.contact:hover .envelope,
+.contact.show .envelope {
+	transition-delay: 150ms;
+	-ms-transition-delay: 150ms;
+	-moz-transition-delay: 150ms;
+	-o-transition-delay: 150ms;
+	margin-top: calc(-20px * var(--scale));
+}
+.contact .envelope .top {
+	position: absolute;
+	top: calc(-3px * var(--scale));
+	left: 0px;
+	width: 100%;
+	height: calc(73px * var(--scale));
+	z-index: 30;
+	overflow: hidden;
+	transform-origin: top;
+	-ms-transform-origin: top;
+	-moz-transform-origin: top;
+	-o-transform-origin: top;
+	-webkit-transform-origin: top;
+	transition: transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+	-ms-transition: -ms-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+	-moz-transition: -moz-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+	-o-transition: -o-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+	-webkit-transition: -webkit-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+}
+.contact:hover .envelope .top,
+.contact.show .envelope .top {
+	transition: transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+	-ms-transition: -ms-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+	-moz-transition: -moz-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+	-o-transition: -o-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+	-webkit-transition: -webkit-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+	height: calc(10px * var(--scale));
+	top: calc(-60px * var(--scale));
+	transform: rotateX(180deg);
+	-ms-transform: rotateX(180deg);
+	-moz-transform: rotateX(180deg);
+	-o-transform: rotateX(180deg);
+	-webkit-transform: rotateX(180deg);
+}
+.contact .envelope .outer {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	border-left: calc(83px * var(--scale)) solid transparent;
+	border-right: calc(82px * var(--scale)) solid transparent;
+	border-top: calc(70px * var(--scale)) solid #eee;
+}
+.contact .envelope .outer .inner {
+	position: absolute;
+	left: calc(-81px * var(--scale));
+	top: calc(-73px * var(--scale));
+	border-left: calc(81px * var(--scale)) solid transparent;
+	border-right: calc(80px * var(--scale)) solid transparent;
+	border-top: calc(68px * var(--scale)) solid #333;
+}
+.contact .envelope .bottom {
+	position: absolute;
+	z-index: 20;
+	bottom: 0px;
+	left: calc(2px * var(--scale));
+	border-left: calc(81px * var(--scale)) solid transparent;
+	border-right: calc(80px * var(--scale)) solid transparent;
+	border-bottom: calc(45px * var(--scale)) solid #333;
+}
+.contact .envelope .left {
+	position: absolute;
+	z-index: 20;
+	top: 0px;
+	left: 0px;
+	border-left: calc(81px * var(--scale)) solid #333;
+	border-top: calc(45px * var(--scale)) solid transparent;
+	border-bottom: calc(45px * var(--scale)) solid transparent;
+}
+.contact .envelope .right {
+	position: absolute;
+	z-index: 20;
+	top: 0px;
+	right: 0px;
+	border-right: calc(80px * var(--scale)) solid #333;
+	border-top: calc(45px * var(--scale)) solid transparent;
+	border-bottom: calc(45px * var(--scale)) solid transparent;
+}
+.contact .envelope .cover {
+	position: absolute;
+	z-index: 15;
+	bottom: 0px;
+	left: 0px;
+	height: 55%;
+	width: 100%;
+	background: #eee;
+}
+.contact .envelope .paper {
+	position: absolute;
+	height: calc(83px * var(--scale));
+	padding-top: calc(10px * var(--scale));
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	background: #f9f9f9;
+	z-index: 10;
+	transition: margin-top 300ms 0ms;
+	-ms-transition: margin-top 300ms 0ms;
+	-moz-transition: margin-top 300ms 0ms;
+	-o-transition: margin-top 300ms 0ms;
+	-webkit-transition: margin-top 300ms 0ms;
+}
+.contact:hover .envelope .paper,
+.contact.show .envelope .paper {
+	margin-top: calc(-60px * var(--scale));
+	transition: margin-top 300ms 150ms;
+	-ms-transition: margin-top 300ms 150ms;
+	-moz-transition: margin-top 300ms 150ms;
+	-o-transition: margin-top 300ms 150ms;
+	-webkit-transition: margin-top 300ms 150ms;
+}
+
+@media (max-width: 1024px) {
+	.contact {
+		--scale: 3;
+	}
+}
+
+@media (max-width: 800px) {
+	.contact {
+		--scale: 2;
+	}
+}
+
+@media (max-width: 600px) {
+	.contact {
+		--scale: 1;
+	}
+}
