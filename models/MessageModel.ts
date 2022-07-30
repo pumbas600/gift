@@ -18,6 +18,6 @@ const messageSchema = new Schema<MessageData>({
 	},
 });
 
-const MessageModel = models.MessageModel || model('Message', messageSchema);
+const MessageModel = models.Message || model('Message', messageSchema);
 
 export default MessageModel;

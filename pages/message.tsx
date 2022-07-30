@@ -29,8 +29,6 @@ const Message: FC = () => {
 		}
 	}, [code]);
 
-	console.log(message);
-
 	if (!message) {
 		return <LoadingPlaceholder />;
 	}
