@@ -21,6 +21,7 @@ const Envelope: FC<Props> = (props) => {
 	return (
 		<div className="relative w-full h-[100vh] flex items-center justify-center">
 			<div className={styles.contact}>
+				<h3 className="mt-5">Click to open :)</h3>
 				<OutsideClickHandler onClickOutside={() => setShow(false)}>
 					<div className={`${styles.envelope} ${show ? styles.show : ''}`} onClick={handleToggle}>
 						<div className={styles.top}>
