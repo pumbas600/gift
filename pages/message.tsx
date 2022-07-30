@@ -9,14 +9,18 @@ import { ErrorResponse, OkResponse } from '../types/Responses';
 
 const Message: FC = () => {
 	const router = useRouter();
-	const code = router.query.code;
+	const code = router.query.code as string;
 	const [message, setMessage] = useState<MessageData | null>(null);
 
 	useEffect(() => {
 		async function fetchData() {
+			const cached = localStorage.getItem(code);
+			if (cached) setMessage(JSON.parse(cached));
+
 			try {
 				const res: OkResponse<MessageData> | ErrorResponse = await (await fetch(`api/messages/${code}`)).json();
 				if (res.status === 'success') {
+					localStorage.setItem(code, JSON.stringify(res.data));
 					setMessage(res.data);
 				}
 			} catch (err) {
