@@ -1,13 +1,30 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import MessageData from '../../../types/MessageData';
 import { ErrorResponse, OkResponse } from '../../../types/Responses';
+import MessageModel from '../../../models/MessageModel';
+import connectDatabase from '../../../utils/ConnectDatabase';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<OkResponse<MessageData> | ErrorResponse>) {
+export default async function handler(
+	req: NextApiRequest,
+	res: NextApiResponse<OkResponse<MessageData> | ErrorResponse>
+) {
 	const code = req.query.code as string;
 	if (!code) res.status(400).json({ status: 'error', message: 'Missing required code' });
 
-	res.status(200).json({
-		status: 'success',
-		data: { title: 'Happy Birthday Josh!', message: 'I hope you had an absolutely fantastic day :)' },
+	try {
+		await connectDatabase();
+
+		const message = await MessageModel.findById(code);
+		if (message) {
+			res.status(200).json({
+				status: 'success',
+				data: { title: message.title, message: message.message },
+			});
+			return;
+		}
+	} catch (err) {}
+	res.status(404).json({
+		status: 'error',
+		message: `There is no message with the code ${code}`,
 	});
 }
