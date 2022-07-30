@@ -2,19 +2,14 @@
 
 .contact {
 	--scale: 4;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin-left: calc(-125px * var(--scale));
-	margin-top: calc(-125px * var(--scale));
 	height: min(95vh, calc(250px * var(--scale)));
 	width: calc(250px * var(--scale));
 	background: rgba(0, 0, 0, 0.1);
-	border-radius: 2px;
-	-ms-border-radius: 2px;
-	-moz-border-radius: 2px;
-	-o-border-radius: 2px;
-	-webkit-border-radius: 2px;
+	border-radius: 10px;
+	-ms-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+	-webkit-border-radius: 10px;
 }
 .contact .envelope {
 	position: absolute;
@@ -31,8 +26,8 @@
 	-o-transition: margin-top 300ms;
 	-webkit-transition: margin-top 300ms;
 }
-.contact:hover .envelope,
-.contact.show .envelope {
+.envelope:hover,
+.envelope.show {
 	transition-delay: 150ms;
 	-ms-transition-delay: 150ms;
 	-moz-transition-delay: 150ms;
@@ -58,8 +53,8 @@
 	-o-transition: -o-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
 	-webkit-transition: -webkit-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
 }
-.contact:hover .envelope .top,
-.contact.show .envelope .top {
+.envelope:hover .top,
+.envelope.show .top {
 	transition: transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
 	-ms-transition: -ms-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
 	-moz-transition: -moz-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
@@ -140,8 +135,8 @@
 	-o-transition: margin-top 300ms 0ms;
 	-webkit-transition: margin-top 300ms 0ms;
 }
-.contact:hover .envelope .paper,
-.contact.show .envelope .paper {
+.envelope:hover .paper,
+.envelope.show .paper {
 	margin-top: calc(-60px * var(--scale));
 	transition: margin-top 300ms 150ms;
 	-ms-transition: margin-top 300ms 150ms;
@@ -164,6 +159,6 @@
 
 @media (max-width: 600px) {
 	.contact {
-		--scale: 1;
+		--scale: 1.8;
 	}
 }
