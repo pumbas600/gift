@@ -50,7 +50,7 @@ const Message: FC = () => {
 				<Container>
 					<div className="flex flex-col justify-center text-center gap-8 mt-10">
 						<h3 className="lg:text-5xl text-blue-600">{message.title}</h3>
-						<p className="lg:text-lg whitespace-pre">{message.message}</p>
+						<p className="lg:text-lg whitespace-pre-wrap">{message.message}</p>
 					</div>
 				</Container>
 			</div>
