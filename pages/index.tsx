@@ -27,27 +27,27 @@ const Home: NextPage = () => {
 		);
 	}
 
-	if (!code) {
-		<LoadingPlaceholder />;
-	}
-
 	return (
 		<Container>
 			<div className="flex flex-col justify-center text-center">
 				<Envelope ignore={[linkRef]}>
-					<div className="flex flex-col lg:gap-8 gap-4">
-						<h3 className="text-blue-600">Happy Birthday!</h3>
+					{code ? (
 						<Link href={`/message?code=${code}`}>
-							<div ref={linkRef} className="flex flex-col justify-center lg:gap-8 gap-4">
-								<div>
-									<AnimatedLink>
-										<h5 className="whitespace-nowrap">Click here to read message</h5>
-									</AnimatedLink>
+							<div ref={linkRef} className="flex flex-col lg:gap-8 gap-4">
+								<h3 className="text-blue-600">Happy Birthday!</h3>
+								<div className="flex flex-col justify-center lg:gap-8 gap-4">
+									<div>
+										<AnimatedLink>
+											<h5 className="whitespace-nowrap">Click here to read message</h5>
+										</AnimatedLink>
+									</div>
+									{arrowComponent()}
 								</div>
-								{arrowComponent()}
 							</div>
 						</Link>
-					</div>
+					) : (
+						<LoadingPlaceholder />
+					)}
 				</Envelope>
 			</div>
 		</Container>
