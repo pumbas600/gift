@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import MessageData from '../../../types/MessageData';
 import { ErrorResponse, OkResponse } from '../../../types/Responses';
-import MessageModel from '../../../models/MessageModel';
+import MessageModel, { MessageData } from '../../../models/MessageModel';
 import connectDatabase from '../../../utils/ConnectDatabase';
 
 export default async function handler(

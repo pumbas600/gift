@@ -1,37 +1,12 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { FC, ReactNode, useEffect, useState } from 'react';
+import { FC } from 'react';
 import Container from '../components/Container';
 import AnimatedLink from '../components/links/AnimatedLink';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import MessageData from '../types/MessageData';
-import { ErrorResponse, OkResponse } from '../types/Responses';
+import useMessage from '../hooks/useMessage';
 
 const Message: FC = () => {
-	const router = useRouter();
-	const code = router.query.code as string;
-	const [message, setMessage] = useState<MessageData | null>(null);
-
-	useEffect(() => {
-		async function fetchData() {
-			const cached = localStorage.getItem(code);
-			if (cached) setMessage(JSON.parse(cached));
-
-			try {
-				const res: OkResponse<MessageData> | ErrorResponse = await (await fetch(`api/messages/${code}`)).json();
-				if (res.status === 'success') {
-					localStorage.setItem(code, JSON.stringify(res.data));
-					setMessage(res.data);
-				}
-			} catch (err) {
-				console.error(err);
-			}
-		}
-
-		if (code) {
-			fetchData();
-		}
-	}, [code]);
+	const [code, message] = useMessage();
 
 	if (!message) {
 		return <LoadingPlaceholder />;

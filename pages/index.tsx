@@ -1,17 +1,15 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { ReactNode, useRef } from 'react';
 import Container from '../components/Container';
 import Envelope from '../components/Envelope';
 import AnimatedLink from '../components/links/AnimatedLink';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
+import useMessage from '../hooks/useMessage';
 
 const Home: NextPage = () => {
 	const linkRef = useRef<HTMLDivElement>(null);
-	const router = useRouter();
-	const code = router.query.code;
+	const [code] = useMessage();
 
 	function arrowComponent(): ReactNode {
 		return (

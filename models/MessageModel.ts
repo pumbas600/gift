@@ -1,9 +1,9 @@
-import mongoose, { model, models, Schema } from 'mongoose';
-import MessageData from '../types/MessageData';
+import { model, models, Schema } from 'mongoose';
 
-mongoose.connect(process.env.MONGODB_URI).then(() => {
-	console.log('connected to the database');
-});
+interface MessageData {
+	title: string;
+	message: string;
+}
 
 const messageSchema = new Schema<MessageData>({
 	title: {
@@ -21,3 +21,4 @@ const messageSchema = new Schema<MessageData>({
 const MessageModel = models.Message || model('Message', messageSchema);
 
 export default MessageModel;
+export type { MessageData };
